@@ -1,0 +1,77 @@
+/* reset css */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Style cơ bản cho website */
+body{
+    font-family: sans-serif;
+    color: #333;
+}
+
+/* đưa menu ra giữa và bỏ gạch ở trước */
+#menu ul{
+    text-align: center;
+    list-style-type: none;
+    background: #1F568B;
+}
+
+/* đưa mục con nằm ngang */
+#menu li{
+    color: #f1f1f1;
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: -5px;
+}
+
+/* block để thẻ li phủ hết thanh droptop */
+#menu a{
+    text-decoration: none;
+    display: block;
+    color: #fff;
+}
+
+/* chỉnh thẻ để rà vào thay đổi màu */
+#menu li :hover{
+    background-color: #F1F1F1;
+    color: #333;
+}
+
+/* cho submenu li ẩn đi  */
+/* .sub-menu li {
+    display: none;
+    margin-left: 0!important;
+} */
+
+
+/* cho submenu nằm trong menu mẹ */
+.sub-menu {
+    display: none;
+    position: absolute;
+}
+#menu li{
+    position: relative;
+}
+/* Cho submenu hiển thị khi rà chuột vào */
+#menu li :hover .sub-menu{
+    display: block;
+}
+
+.sub-menu>ul{
+    display: none!important ;
+}
+
+/* Form nằm giữa */
+#form{
+    
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+/* nút kiểm tra lỗi màu đỏ */
+#kiemTra{
+    color: red;
+}
