@@ -69,28 +69,49 @@ function Reset() {
 // }
 
 // Cau2();
-function xuLy(){
-    // var x = document.myform.email.value;
-    //     var atposition = x.indexOf("@");
-    //     var dotposition = x.lastIndexOf(".");
-    //     if (atposition < 1 || dotposition < (atposition + 2)
-    //             || (dotposition + 2) >= x.length) {
-    //         alert("Please enter a valid e-mail address.");
-    //         return false;
-    //     }
-    var email=document.getElementById("email").value;
-    var pass=document.getElementById("password").value;
+// function xuLy(){
+//     // var x = document.myform.email.value;
+//     //     var atposition = x.indexOf("@");
+//     //     var dotposition = x.lastIndexOf(".");
+//     //     if (atposition < 1 || dotposition < (atposition + 2)
+//     //             || (dotposition + 2) >= x.length) {
+//     //         alert("Please enter a valid e-mail address.");
+//     //         return false;
+//     //     }
+//     var email=document.getElementById("email").value;
+//     var pass=document.getElementById("password").value;
 
-    if(email=='' || pass=='')
-    {
-        document.getElementById("kiemTra").innerHTML="Email và password không được để trống!";
+//     if(email=='' || pass=='')
+//     {
+//         document.getElementById("kiemTra").innerHTML="Email và password không được để trống!";
+//     }
+
+//     if(email=="binh@gmail.com" && pass=="1234")
+//         document.getElementById("kiemTra").innerHTML="Đăng nhập thành công!";
+//     else document.getElementById("kiemTra").innerHTML="Email hoặc password không đúng";
+//     const endpoint = 'https://www.gov.uk/bank-holidays.json';
+//     document.getElementById("kiemTra").innerHTML=fetch(endpoint);
+//     console.log(fetch(endpoint));
+
+// }
+
+function docJson(file, callback)
+{
+    var rawFile= new XMLHttpRequest;
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET",file,true);
+    rawFile.onreadystatechange= function(){
+        if(rawFile.readyState===4 && rawFile.status=="200")
+        {
+            callback(rawFile.responseText);
+        }
     }
-
-    if(email=="binh@gmail.com" && pass=="1234")
-        document.getElementById("kiemTra").innerHTML="Đăng nhập thành công!";
-    else document.getElementById("kiemTra").innerHTML="Email hoặc password không đúng";
-    const endpoint = 'https://www.gov.uk/bank-holidays.json';
-    document.getElementById("kiemTra").innerHTML=fetch(endpoint);
-    console.log(fetch(endpoint));
-
+    rawFile.send(null);
 }
+
+docJson("test.json", function(text){
+    var data= JSON.parse(text);
+    document.getElementById("name").innerHTML=data.name;
+    document.getElementById("age").innerHTML=data.age;
+    document.getElementById("address").innerHTML=data.address;
+});
